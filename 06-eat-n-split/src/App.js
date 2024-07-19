@@ -46,7 +46,11 @@ export default function App() {
         </Button>
       </div>
       <div className="sidebar">
-        {curFriend && <FormSplitBill friend={curFriend} onSplitBill={handleSplitBill}/>}
+        {curFriend && <FormSplitBill
+          friend={curFriend}
+          onSplitBill={handleSplitBill}
+          key={curFriend.id}
+        />}
       </div>
     </div>
   )
