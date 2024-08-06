@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .test-grid {
+      display: grid;
+      grid-template-columns: auto 4fr;
+      grid-template-rows: auto auto;
+      column-gap: 10px;
+      width: 800px;
+      margin: 0 auto;
+      align-items: center;
+      font-size: 12px;
+    }
+    .test-grid img {
+      grid-row: 1 / -1;
+    }
+    .test-grid div {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+  </style>
+</head>
+<body>
+<div class="test-grid">
+  <img src="logo192.png" alt="logo" width="50" height="50">
+  <h2>This is a title</h2>
+  <div>
+    <p>Grid</p>
+    <p>Test</p>
+    <p>For</p>
+    <p>Challenge</p>
+  </div>
+</div>
+</body>
+</html>

@@ -63,7 +63,37 @@ function TabContent({ item }) {
   const [likes, setLikes] = useState(0);
 
   function handleInc() {
-    setLikes(likes + 1);
+    // setLikes(likes + 1);
+    setLikes((likes) => likes + 1);
+  }
+
+  function handleTripleInc() {
+    // Setting by accessing the state will batch and, each time the state is set, it will be set based on
+    // "likes" (which is the previous state) + 1
+    // Therefore, the state will be set to "0 + 1", "0 + 1", "0 + 1" = 1
+
+    /* setLikes(likes + 1);
+     setLikes(likes + 1);
+     setLikes(likes + 1); */
+
+    // To fix this, we can use the function form of setState. This ensures the update occurs to the LATEST change
+    // to the state
+    setLikes((likes) => likes + 1);
+    setLikes((likes) => likes + 1);
+    setLikes((likes) => likes + 1);
+
+    // Obviously, we can just use "likes + 3" here, but this is just to show the difference
+    setLikes(likes + 3);
+  }
+
+  function handleUndo() {
+    setShowDetails(false)
+    setLikes(0)
+  }
+
+  function handleUndoLater() {
+    // React >= 18, 'setTimeout' will allow state changes to be batched (one render).
+    setTimeout(handleUndo, 2000);
   }
 
   return (
@@ -79,12 +109,12 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} ❤️</span>
           <button onClick={handleInc}>+</button>
-          <button>+++</button>
+          <button onClick={handleTripleInc}>+++</button>
         </div>
       </div>
 
       <div className="tab-undo">
-        <button>Undo</button>
+        <button onClick={handleUndoLater}>Undo</button>
         <button>Undo in 2s</button>
       </div>
     </div>
