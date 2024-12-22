@@ -1,11 +1,11 @@
 import {FormAddPost} from "./FormAddPost";
 import {Posts} from "./Posts";
 
-export function Main({posts, onAddPost}) {
+export function Main() {
   return (
     <main>
-      <FormAddPost onAddPost={onAddPost}/>
-      <Posts posts={posts}/>
+      <FormAddPost />
+      <Posts />
     </main>
   );
 }

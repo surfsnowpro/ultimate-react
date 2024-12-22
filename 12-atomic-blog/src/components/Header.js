@@ -1,11 +1,9 @@
 import {Results} from "./Results";
 import {SearchPosts} from "./SearchPosts";
-import {useContext} from "react";
-import {PostContext} from "../App";
+import {usePosts} from "../PostContext";
 
 export function Header() {
-  const context = useContext(PostContext);
-  console.log(context)
+  const { onClearPosts } = usePosts()
 
   return (
     <header>
@@ -15,7 +13,7 @@ export function Header() {
       <div>
         <Results />
         <SearchPosts />
-        <button onClick={context.onClearPosts}>Clear posts</button>
+        <button onClick={onClearPosts}>Clear posts</button>
       </div>
     </header>
   );

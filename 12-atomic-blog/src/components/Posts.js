@@ -1,9 +1,9 @@
 import {List} from "./List";
 
-export function Posts({posts}) {
+export function Posts() {
   return (
     <section>
-      <List posts={posts}/>
+      <List />
     </section>
   );
 }
