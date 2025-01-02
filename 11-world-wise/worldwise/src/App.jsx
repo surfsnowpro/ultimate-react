@@ -9,7 +9,7 @@ import CityList from "./components/CityList.jsx";
 import CountryList from "./components/CountryList.jsx";
 import City from "./components/City.jsx";
 import Form from "./components/Form.jsx";
-import {CitiesProvider, useCities} from "./contexts/CitiesContext.jsx";
+import {CitiesProvider} from "./contexts/CitiesContext.jsx";
 
 
 export default function App() {
@@ -26,7 +26,7 @@ export default function App() {
             <Route path="cities" element={
               <CityList />
             }/>
-            <Route path="cities/:id/:name" element={<City/>}/>
+            <Route path="cities/:id" element={<City/>}/>
             <Route path="countries" element={
               <CountryList />
             }/>
