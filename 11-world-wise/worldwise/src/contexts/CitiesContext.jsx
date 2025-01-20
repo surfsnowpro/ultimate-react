@@ -10,8 +10,13 @@ function CitiesProvider({children}) {
   const [currentCity, setCurrentCity] = useState({})
 
   useEffect(() => {
+    console.log("Fetching cities")
     fetchCities()
   }, []);
+
+  function addCity(city) {
+    setCities([...cities, city])
+  }
 
   async function fetchCities() {
     try {
@@ -41,6 +46,7 @@ function CitiesProvider({children}) {
 
   return <CitiesContext.Provider value={{
     cities,
+    addCity,
     isLoading,
     currentCity,
     getCity,
